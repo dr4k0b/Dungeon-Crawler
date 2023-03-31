@@ -42,6 +42,7 @@ public class Player_Script : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    //eassdsdf
     void EnemySpawn()
     {
         int x;
