@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class Bullet_Script : MonoBehaviour
 {
     Rigidbody2D rb;
-    GameObject Player;
     GameObject Hand;
     Vector2 Direction;
 
