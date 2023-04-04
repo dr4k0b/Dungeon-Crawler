@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Random = System.Random;
+using UnityEngine;
 
-public class Enemy_Script : MonoBehaviour
+public class Exit_Script : MonoBehaviour
 {
-    Rigidbody2D rb;
-    Random RNG = new Random();
     [SerializeField] GameLoader_Script g;
+    Random RNG = new Random();
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
     void Update()
     {
-
+        if (g.EnemyCount <= 0)
+        {
+            g.RoomDone = true;
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Bullet")
+        if (other.tag == "Player")
         {
-            g.EnemyCount -= 1;
-            Destroy(other.gameObject);
+            g.RoomReset();
             Destroy(gameObject);
         }
     }
