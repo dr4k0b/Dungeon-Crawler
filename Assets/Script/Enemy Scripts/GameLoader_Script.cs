@@ -27,16 +27,14 @@ public class GameLoader_Script : MonoBehaviour
             ExitSPawn();
             RoomDone = false;
         }
-
+        Debug.Log(Floor + " " + CurrentFloor);
     }
     public void RoomReset()
     {
-
-        CurrentFloor = Floor;
         EnemySpawn();
         p.RoomReset();
         p.ItemPos.Clear();
-
+        CurrentFloor = Floor;
     }
     void ExitSPawn()
     {

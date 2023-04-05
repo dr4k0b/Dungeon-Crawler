@@ -12,10 +12,9 @@ public class Player_Script : MonoBehaviour
     [SerializeField] GameObject Exit;
     [SerializeField] Transform BulletSpawn;
     Random RNG = new Random();
-    Vector2 StartPos;
     float Speed = 10;
-    float WalkAni = 1;
     public List<Vector2> ItemPos = new List<Vector2>();
+    public Vector2 Position;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +22,7 @@ public class Player_Script : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(moveInput.x * Speed, moveInput.y * Speed);
+        Position = rb.position;
     }
     void OnMove(InputValue value)
     {
