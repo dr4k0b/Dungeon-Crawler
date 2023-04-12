@@ -6,6 +6,7 @@ using Random = System.Random;
 public class GameLoader_Script : MonoBehaviour
 {
     [SerializeField] Player_Script p;
+    [SerializeField] Enemy_Script e;
 
     [SerializeField] GameObject Enemy;
     [SerializeField] GameObject Player;
@@ -67,7 +68,9 @@ public class GameLoader_Script : MonoBehaviour
             while (p.ItemPos.Contains(new Vector2(x, y)));
             p.ItemPos.Add(new Vector2(x, y));
             EnemySpawnPoint = new Vector2(x, y);
+            e.EnemyType = RNG.Next(1, 3);
             Instantiate(Enemy, EnemySpawnPoint, transform.rotation);
+            e.EnemyType = 0;
         }
     }
 }

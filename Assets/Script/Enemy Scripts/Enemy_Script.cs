@@ -10,14 +10,28 @@ public class Enemy_Script : MonoBehaviour
     [SerializeField] GameLoader_Script g;
     [SerializeField] Player_Script p;
     [SerializeField] GameObject Enemy;
+    public int EnemyType = 0;
+    int ThisEnemyType;
     float EnemyHP = 3;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ThisEnemyType = EnemyType;
+        if (ThisEnemyType == 1)
+            EnemyHP = 3;
+        if (ThisEnemyType == 2)
+            EnemyHP = 5;
+        if (ThisEnemyType == 3)
+            EnemyHP = 1;
     }
     void Update()
     {
-        Enemy1();
+        if (ThisEnemyType == 1)
+            Enemy1();
+        if (ThisEnemyType == 2)
+            Enemy2();
+        if (ThisEnemyType == 3)
+            Enemy3();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,17 +53,24 @@ public class Enemy_Script : MonoBehaviour
     bool spawned = false;
     void Enemy2()
     {
-
         if (!spawned)
         {
-            Invoke("Enemy3", 1f);
+            Invoke("Enemy3spawn", 3f);
             spawned = true;
         }
     }
+    void Enemy3spawn()
+    {
+        spawned = false;
+        EnemyType = 3;
+        g.EnemyCount += 1;
+        Instantiate(Enemy, rb.position, transform.rotation);
+        EnemyType = 0;
+    }
     void Enemy3()
     {
+
         transform.localScale = new Vector3(0.5f, 0.5f, 1);
         transform.position = Vector2.MoveTowards(this.transform.position, p.Position, 1 * Time.deltaTime);
-        spawned = false;
     }
 }

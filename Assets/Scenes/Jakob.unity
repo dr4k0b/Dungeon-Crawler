@@ -473,6 +473,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 628325114272189985, guid: 7c609849a93c9d94ab21eeda46883e35, type: 3}
   m_PrefabInstance: {fileID: 1537071875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1537071879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6985550621405947123, guid: 7c609849a93c9d94ab21eeda46883e35, type: 3}
+  m_PrefabInstance: {fileID: 1537071875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537071876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439d383429587a241b2cb1ccdec7ac94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1966559036
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 236432936}
+  e: {fileID: 1537071879}
   Enemy: {fileID: 1537071876}
   Player: {fileID: 1082824287}
   Exit: {fileID: 652112890}
