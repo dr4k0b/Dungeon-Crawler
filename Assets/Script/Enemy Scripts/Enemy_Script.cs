@@ -10,6 +10,7 @@ public class Enemy_Script : MonoBehaviour
     [SerializeField] GameLoader_Script g;
     [SerializeField] Player_Script p;
     [SerializeField] GameObject Enemy;
+    [SerializeField] GameObject EBullet;
     public int EnemyType = 0;
     int ThisEnemyType;
     float EnemyHP = 3;
@@ -23,6 +24,8 @@ public class Enemy_Script : MonoBehaviour
             EnemyHP = 5;
         if (ThisEnemyType == 3)
             EnemyHP = 1;
+        if (ThisEnemyType == 4)
+            EnemyHP = 2;
     }
     void Update()
     {
@@ -32,6 +35,8 @@ public class Enemy_Script : MonoBehaviour
             Enemy2();
         if (ThisEnemyType == 3)
             Enemy3();
+        if (ThisEnemyType == 4)
+            Enemy4();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -72,5 +77,19 @@ public class Enemy_Script : MonoBehaviour
 
         transform.localScale = new Vector3(0.5f, 0.5f, 1);
         transform.position = Vector2.MoveTowards(this.transform.position, p.Position, 1 * Time.deltaTime);
+    }
+    bool Shooting = false;
+    void Enemy4()
+    {
+        if (!Shooting)
+        {
+            Invoke("Enemy4spawn", 3f);
+            Shooting = true;
+        }
+    }
+    void Enemy4spawn()
+    {
+        Shooting = false;
+        Instantiate(EBullet, rb.position, transform.rotation);
     }
 }

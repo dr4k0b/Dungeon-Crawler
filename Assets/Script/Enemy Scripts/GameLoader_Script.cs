@@ -68,7 +68,7 @@ public class GameLoader_Script : MonoBehaviour
             while (p.ItemPos.Contains(new Vector2(x, y)));
             p.ItemPos.Add(new Vector2(x, y));
             EnemySpawnPoint = new Vector2(x, y);
-            e.EnemyType = RNG.Next(1, 3);
+            e.EnemyType = RNG.Next(1, 5);
             Instantiate(Enemy, EnemySpawnPoint, transform.rotation);
             e.EnemyType = 0;
         }
