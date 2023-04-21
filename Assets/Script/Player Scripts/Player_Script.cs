@@ -8,9 +8,9 @@ public class Player_Script : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector2 moveInput;
-    [SerializeField] GameObject Bullet;
+
     [SerializeField] GameObject Exit;
-    [SerializeField] Transform BulletSpawn;
+
     Random RNG = new Random();
     float Speed = 10;
     public List<Vector2> ItemPos = new List<Vector2>();
@@ -27,10 +27,6 @@ public class Player_Script : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-    }
-    void OnShoot()
-    {
-        Instantiate(Bullet, BulletSpawn.transform.position, transform.rotation);
     }
     public void RoomReset()
     {

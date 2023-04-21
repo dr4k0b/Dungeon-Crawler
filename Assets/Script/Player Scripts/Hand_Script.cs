@@ -7,6 +7,8 @@ public class Hand_Script : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D rb;
+    [SerializeField] GameObject Bullet;
+    [SerializeField] Transform BulletSpawn;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,5 +23,9 @@ public class Hand_Script : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+    void OnShoot()
+    {
+        Instantiate(Bullet, BulletSpawn.transform.position, transform.rotation);
     }
 }
