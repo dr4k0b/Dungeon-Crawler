@@ -9,6 +9,7 @@ public class Player_Script : MonoBehaviour
     Rigidbody2D rb;
     Vector2 moveInput;
 
+    int HP = 5;
     [SerializeField] GameObject Exit;
 
     Random RNG = new Random();
@@ -21,8 +22,19 @@ public class Player_Script : MonoBehaviour
     }
     void Update()
     {
-        rb.velocity = new Vector2(moveInput.x * Speed, moveInput.y * Speed);
-        Position = rb.position;
+        if (HP > 0)
+        {
+            rb.velocity = new Vector2(moveInput.x * Speed, moveInput.y * Speed);
+            Position = rb.position;
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            HP--;
+        }
     }
     void OnMove(InputValue value)
     {
