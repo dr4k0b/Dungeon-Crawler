@@ -90,6 +90,6 @@ public class Enemy_Script : MonoBehaviour
     void Enemy4spawn()
     {
         Shooting = false;
-        Instantiate(EBullet, rb.position, transform.rotation);
+        Instantiate(EBullet, transform.position, transform.rotation);
     }
 }
