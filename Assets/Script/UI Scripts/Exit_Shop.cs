@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Exit_Shop : MonoBehaviour
 {
     int gameIndex = 0;
+    Hand_Script hand;
+
     void Start()
     {
     }
@@ -14,7 +16,15 @@ public class Exit_Shop : MonoBehaviour
     {
         
     }
+    public void ChooseShotGun()
+    {
+        hand.CurrentWeapon = hand.ShotgunBullet;
+    }
 
+    public void ChooseNormalBullet()
+    {
+        hand.CurrentWeapon = hand.NormalBullet;
+    }
     public void ExitShopToGame()
     {
         SceneManager.LoadScene(gameIndex);
