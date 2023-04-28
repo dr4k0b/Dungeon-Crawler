@@ -13,8 +13,6 @@ public class Exit_Script : MonoBehaviour
     int shopIndex = 1;
     int gameIndex = 0;
 
-    [SerializeField] Keep_Variabel VariKeep;
-
     void Start()
     {
 
@@ -28,18 +26,21 @@ public class Exit_Script : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("ShopOrNot = " + g.shopOrNot);
         if (other.tag == "Player")
         {
-            if (VariKeep.shopOrNot < 2)
+            if (g.shopOrNot < 2)
             {
-                VariKeep.shopOrNot++;
+                g.shopOrNot++;
                 g.RoomReset();
                 Destroy(gameObject);
             }
-            else if (VariKeep.shopOrNot >= 2)
+            else if (g.shopOrNot >= 2)
             {
+                g.shopOrNot = 0;
+                Debug.Log("ShopOrNot = " + g.shopOrNot);
                 SceneManager.LoadScene(shopIndex);
-                VariKeep.shopOrNot = 0;
+                Destroy(gameObject);
             }
         }
     }

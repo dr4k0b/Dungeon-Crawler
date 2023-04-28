@@ -16,6 +16,9 @@ public class GameLoader_Script : MonoBehaviour
     Random RNG = new Random();
     public int EnemyCount = 0;
     public bool RoomDone = false;
+    public int shopOrNot = 0;
+
+
     void Start()
     {
         RoomReset();
