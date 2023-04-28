@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class Keep_Variabel : MonoBehaviour
 {
-    public int shopOrNot = 0;
 }
