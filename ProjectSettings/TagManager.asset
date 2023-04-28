@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Exit
   - VariKeeper
+  - Enemy
   layers:
   - Default
   - TransparentFX

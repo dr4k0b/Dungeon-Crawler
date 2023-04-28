@@ -8,15 +8,17 @@ using UnityEngine.InputSystem.Controls;
 public class EnemyBullet_Script : MonoBehaviour
 {
     [SerializeField] GameObject p;
-    Vector2 target;
-    Vector2 StartPos;
+    Rigidbody2D rb;
+    public float Force;
     void Start()
     {
-        target = p.transform.position;
-        StartPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        p = GameObject.FindGameObjectWithTag("Player");
+        Vector3 dir = p.transform.position - transform.position;
+        rb.velocity = dir.normalized * Force ;
     }
     void Update()
     {
-        transform.position = Vector2.MoveTowards(StartPos, target, 5f);
+
     }
 }
