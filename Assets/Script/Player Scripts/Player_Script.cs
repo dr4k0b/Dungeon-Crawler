@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 public class Player_Script : MonoBehaviour
@@ -27,7 +28,11 @@ public class Player_Script : MonoBehaviour
             rb.velocity = new Vector2(moveInput.x * Speed, moveInput.y * Speed);
             Position = rb.position;
         }
-
+        else
+        {
+            SceneManager.LoadScene(2);
+            rb.velocity = new Vector2(0, 0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
