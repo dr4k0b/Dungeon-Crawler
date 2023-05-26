@@ -60,18 +60,32 @@ public class GameLoader_Script : MonoBehaviour
         Vector2 EnemySpawnPoint;
 
         int MaxEnemys = 3;
-        while (EnemyCount < MaxEnemys)
+        if (Floor != 10)
         {
-            EnemyCount++;
-            do
+            while (EnemyCount < MaxEnemys)
             {
-                x = RNG.Next(-1, 2) * 6;
-                y = RNG.Next(-1, 2) * 3;
+                EnemyCount++;
+                do
+                {
+                    x = RNG.Next(-1, 2) * 6;
+                    y = RNG.Next(-1, 2) * 3;
+                }
+                while (p.ItemPos.Contains(new Vector2(x, y)));
+                p.ItemPos.Add(new Vector2(x, y));
+                EnemySpawnPoint = new Vector2(x, y);
+                e.EnemyType = RNG.Next(1, 5);
+                Instantiate(Enemy, EnemySpawnPoint, transform.rotation);
+                e.EnemyType = 0;
             }
-            while (p.ItemPos.Contains(new Vector2(x, y)));
-            p.ItemPos.Add(new Vector2(x, y));
+        }
+        else
+        {
+            MaxEnemys = 1;
+            x = 0;
+            y = 0;
             EnemySpawnPoint = new Vector2(x, y);
-            e.EnemyType = RNG.Next(1, 5);
+            p.ItemPos.Add(new Vector2(x, y));
+            e.EnemyType = 5;
             Instantiate(Enemy, EnemySpawnPoint, transform.rotation);
             e.EnemyType = 0;
         }
