@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Exit_Shop : MonoBehaviour
 {
-    int gameIndex = 0;
+    int gameIndex = 3;
     Hand_Script hand;
 
     void Start()
