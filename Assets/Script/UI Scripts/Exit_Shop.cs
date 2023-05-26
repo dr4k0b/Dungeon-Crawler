@@ -7,24 +7,31 @@ public class Exit_Shop : MonoBehaviour
 {
     int gameIndex = 3;
     Hand_Script hand;
+    bool choseWeapon1 = false;
+    bool choseWeapon2 = false;
+    bool choseWeapon3 = false;
 
-    void Start()
-    {
-    }
 
-    void Update()
+    public void Weapon1()
     {
-        
-    }
-    public void ChooseShotGun()
-    {
-        hand.CurrentWeapon = hand.ShotgunBullet;
+        choseWeapon1 = true;
     }
 
-    public void ChooseNormalBullet()
+    public void Weapon2()
     {
-        hand.CurrentWeapon = hand.NormalBullet;
+        choseWeapon2 = true;
     }
+    public void Weapon3()
+    {
+        choseWeapon3 = true;
+    }
+    public void Cancel()
+    {
+        choseWeapon1 = false;
+        choseWeapon2 = false;
+        choseWeapon3 = false;
+    }
+
     public void ExitShopToGame()
     {
         SceneManager.LoadScene(gameIndex);

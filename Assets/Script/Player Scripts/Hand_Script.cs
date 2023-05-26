@@ -15,6 +15,7 @@ public class Hand_Script : MonoBehaviour
     public Bullet_Class NormalBullet = new Bullet_Class(1);
     public Bullet_Class ShotgunBullet = new Bullet_Class(0.5f);
 
+
     void Start()
     {
         CurrentWeapon = NormalBullet;

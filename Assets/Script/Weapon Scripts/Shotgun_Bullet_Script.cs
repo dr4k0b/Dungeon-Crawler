@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class Shotgun_Bullet_Script : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -16,7 +15,6 @@ public class Shotgun_Bullet_Script : MonoBehaviour
         Hand = GameObject.FindGameObjectWithTag("Hand");
         Direction = Hand.transform.localScale;
     }
-
     void Update()
     {
         rb.velocity = new Vector2(Direction.x * 10, Direction.y * 10);
