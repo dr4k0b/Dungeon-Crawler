@@ -26,6 +26,8 @@ public class Enemy_Script : MonoBehaviour
             EnemyHP = 1;
         if (ThisEnemyType == 4)
             EnemyHP = 2;
+        if (ThisEnemyType == 5)
+            EnemyHP = 25;
     }
     void Update()
     {
@@ -37,6 +39,8 @@ public class Enemy_Script : MonoBehaviour
             Enemy3();
         if (ThisEnemyType == 4)
             Enemy4();
+        if (ThisEnemyType == 5)
+            Boss();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -91,5 +95,19 @@ public class Enemy_Script : MonoBehaviour
     {
         Shooting = false;
         Instantiate(EBullet, transform.position, transform.rotation);
+    }
+    void Boss()
+    {
+        transform.localScale = new Vector3(2, 2, 1);
+        if (!Shooting)
+        {
+            Invoke("Enemy4spawn", 3f);
+            Shooting = true;
+        }
+        if (!spawned)
+        {
+            Invoke("Enemy3spawn", 3f);
+            spawned = true;
+        }
     }
 }
