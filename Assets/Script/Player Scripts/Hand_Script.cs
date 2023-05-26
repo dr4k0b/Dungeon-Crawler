@@ -10,14 +10,14 @@ public class Hand_Script : MonoBehaviour
     public GameObject normalBulletObject;
     [SerializeField] GameObject Shotgun_Bullet;
     [SerializeField] Transform BulletSpawn;
-    
+
     public Bullet_Class CurrentWeapon = new Bullet_Class(0);
     public Bullet_Class NormalBullet = new Bullet_Class(1);
     public Bullet_Class ShotgunBullet = new Bullet_Class(0.5f);
 
     void Start()
     {
-        CurrentWeapon = ShotgunBullet;
+        CurrentWeapon = NormalBullet;
 
         CurrentWeapon.rb = GetComponent<Rigidbody2D>();
     }
@@ -37,6 +37,10 @@ public class Hand_Script : MonoBehaviour
         if (CurrentWeapon == NormalBullet)
             Instantiate(normalBulletObject, BulletSpawn.transform.position, transform.rotation);
         else if (CurrentWeapon == ShotgunBullet)
+        {
             Instantiate(Shotgun_Bullet, BulletSpawn.transform.position, transform.rotation);
+            Instantiate(Shotgun_Bullet, BulletSpawn.transform.position + new Vector3(-1,1,0), transform.rotation);
+            Instantiate(Shotgun_Bullet, BulletSpawn.transform.position + new Vector3(1,-1,0), transform.rotation);
+        }
     }
 }
